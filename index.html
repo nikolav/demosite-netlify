@@ -42,13 +42,37 @@
       </div>
       
       <hr>
-      <blockquote class="blockquote">
-        <p class="mb-0">A well-known quote, contained in a blockquote element.</p>
-        <footer class="blockquote-footer">Famous <button class="btn btn-secondary btn-sm" data-fancybox data-src="img/Desert.jpg" data-options='{"smallBtn":true}'><i class="fa fa-user" aria-hidden="true"></i> <cite title="Source Title">NikolaV.</cite></button></footer>
-      </blockquote>
+
+      <div class="card">
+        <div class="card-header">
+          Quote
+        </div>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>A well-known quote, contained in a blockquote element.</p>
+            <footer class="blockquote-footer">Famous <button class="btn btn-secondary btn-sm" data-fancybox data-src="https://youtu.be/VfGW0Qiy2I0" data-options='{"smallBtn":true}' data-toggle="tooltip" title="preview user"><i class="fa fa-user" aria-hidden="true"></i> <cite title="Source Title">NikolaV.</cite></button></footer>
+          </blockquote>
+        </div>
+      </div>
+
       
       <!-- <img src="img/Desert.jpg" class="img-fluid img-thumbnail" alt="Desert.jpg"> -->
-      <hr><div class="row">
+<hr>
+
+      
+<div class="btn-group">
+    <button type="button" class="btn btn-secondary">more</button>
+    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-split" data-toggle="dropdown"></button>
+  <div class="dropdown-menu">
+    <a href="" class="dropdown-item">nikolav</a>
+    <a href="" class="dropdown-item">mike</a>
+    <a href="" class="dropdown-item">donald</a>
+  </div>
+</div>
+<hr>      
+      
+      
+      <div class="row">
         <div class="col-md-8 offset-md-2">
           <form>
             <div class="form-group">
@@ -69,22 +93,46 @@
     
         </div>
       </div>
+
+      <div class="btn-group btn-group-toggle btn-group-sm" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+          <input type="radio" name="options" id="option1" checked> Active
+        </label>
+        <label class="btn btn-secondary">
+          <input type="radio" name="options" id="option2"> Radio
+        </label>
+        <label class="btn btn-secondary">
+          <input type="radio" name="options" id="option3"> Radio
+        </label>
+      </div><hr>      
+
+      <div class="btn-group btn-group-toggle" data-toggle="buttons" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary">Left</button>
+        <button type="button" class="btn btn-secondary">Middle</button>
+        <button type="button" class="btn btn-secondary">Right</button>
+      </div>
+
+      
       <hr>
         <h2>Accordion Example</h2>
         <p><strong>Note:</strong> The <strong>data-parent</strong> attribute makes sure that all collapsible elements under the specified parent will be closed when one of the collapsible item is shown.</p>
-        <div id="accordion">
+        
+        <div class="accordion" id="accordion">
           
           <div class="card">
+            
             <div class="card-header">
               <a class="card-link" data-toggle="collapse" href="#collapseOne">
                 Collapsible Group Item #1
               </a>
             </div>
+            
             <div id="collapseOne" class="collapse show" data-parent="#accordion">
               <div class="card-body">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
               </div>
             </div>
+          
           </div>
           
           <div class="card">
@@ -118,6 +166,7 @@
         <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
 
         <div class="position-fixed bottom-0 right-0 p-3" style="z-index: 5; right: 0; bottom: 0;">
+          
           <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
             <div class="toast-header">
               <img src="..." class="rounded mr-2" alt="...">
@@ -128,12 +177,43 @@
               </button>
             </div>
             <div class="toast-body">
-              Hello, world! This is a toast message.
+              <p id="toast-p-1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque maiores veniam molestiae.</p>
             </div>
           </div>
+          
         </div><hr>
 
-    </div>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelId">
+          Launch
+        </button>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+              <div class="modal-body">
+                <div class="container-fluid">
+                  Add rows here
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        
+      </div>
 
   <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js" integrity="sha256-qXBd/EfAdjOA2FGrGAG+b3YBn2tn5A6bhz+LSgYD96k=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js" integrity="sha256-JLmknTdUZeZZ267LP9qB+/DT7tvxOOKctSKeUC2KT6E=" crossorigin="anonymous"></script>
@@ -146,10 +226,29 @@
   <script>
     $(function () {
       $('.toast').toast();
+      $('[data-toggle="tooltip"]').tooltip();
+      $('[data-toggle="popover"]').popover();
+
       $('#liveToastBtn')
-      .on('click', function () {
+      .on('click', () => {
         $('#liveToast').toast('show');
       });
+
+      $('#liveToast')
+      .on('show.bs.toast', () => {
+        axios({
+          url          : './app.php', 
+          method       : 'get', 
+          responseType : 'text'
+        })
+        .then(function (r) {
+          $('#toast-p-1')
+            .text(r.data);
+        })
+      });
+
+
+
     });
   </script>
 </body>
